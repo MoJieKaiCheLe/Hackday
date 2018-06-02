@@ -19,13 +19,7 @@ import com.hackday.utils.XmlUtil;
 
 import net.sf.json.JSONObject;
 
-/**
- * 
- * @author 高伟鹏 原作 李文渊学姐
- * @email gaoweipeng3@gmail.com
- * @version 创建时间：2018年5月14日 下午8:13:39
- * @describe 代码阅读与修改命名
- */
+
 
 @Controller
 @RequestMapping("lwy")
@@ -73,73 +67,73 @@ public class UserController {
 	}
 
 	// 保存表格中的数据
-//	@RequestMapping("/tablePost.do")
-//	@ResponseBody
-//	/**
-//	 * @describe 此处应是保存表单数据，可是为什么只保存到map集合中而不写入xml（未实现功能）
-//	 * @param nodeid
-//	 * @param tableid
-//	 * @param tabletitle
-//	 * @param changetabledata
-//	 */
-//	public void tablePost(String nodeId, String tableId, String tableTitle, String changeTableData) {
-//		// System.out.println(nodeId);
-//		NodeTable t = new NodeTable(tableId, tableTitle, changeTableData);
-//		List<NodeTable> nodeT = new ArrayList<NodeTable>();
-//		if (nodeMap.get(nodeId) == null) {
-//			nodeT.add(t);
-//			nodeMap.put(nodeId, nodeT);
-//		} else {
-//			nodeMap.get(nodeId).add(t);
-//		}
-//		// 遍历nodelist获取nodeid对应的node实体类
-//		for (Node node : nodeList) {
-//			if (node.getNodeId().equals(nodeId)) {
-//
-//				// System.out.println(t.getData());
-//				node.setTableList(nodeMap.get(nodeId));
-//			}
-//		}
-//
-//		System.out.println(nodeMap);
-//		// attr.setId(nodeId);
-//	}
+	@RequestMapping("/tablePost.do")
+	@ResponseBody
+	/**
+	 * @describe 此处是保存表单数据，只保存到map集合中而不写入xml（未实现功能）
+	 * @param nodeid
+	 * @param tableid
+	 * @param tabletitle
+	 * @param changetabledata
+	 */
+	public void tablePost(String nodeId, String tableId, String tableTitle, String changeTableData) {
+		// System.out.println(nodeId);
+		NodeTable t = new NodeTable(tableId, tableTitle, changeTableData);
+		List<NodeTable> nodeT = new ArrayList<NodeTable>();
+		if (nodeMap.get(nodeId) == null) {
+			nodeT.add(t);
+			nodeMap.put(nodeId, nodeT);
+		} else {
+			nodeMap.get(nodeId).add(t);
+		}
+		// 遍历nodelist获取nodeid对应的node实体类
+		for (Node node : nodeList) {
+			if (node.getNodeId().equals(nodeId)) {
+
+				// System.out.println(t.getData());
+				node.setTableList(nodeMap.get(nodeId));
+			}
+		}
+
+		System.out.println(nodeMap);
+		// attr.setId(nodeId);
+	}
 
 	// 加载表格数据
 	// 如果tab已经存在在list中就加载数据 如果不存在就把new一个nodetable
-//	@RequestMapping(value = "loadTableData.do", produces = { "application/text;charset=UTF-8" })
-//	@ResponseBody
-//	/**
-//	 * @describe 此处应该是显示数据
-//	 * @param tabtitle 表明名
-//	 * @param nodeid 所属结点id?
-//	 * @return
-//	 */
-//	public String loadTableData(String tabTitle, String nodeId) {
-//		String data = null;
-//		List<NodeTable> tList = new ArrayList<NodeTable>();
-//		if (nodeMap.get(nodeId) != null) {
-//			tList = nodeMap.get(nodeId);
-//		}
-//		for (NodeTable t : tList) {
-//			// 存在该表格
-//			if (t.getTableId().equals(tabTitle)) {
-//
-//				if (t.getData() != null) {
-//					data = t.getData();
-//				}
-//			}
-//		}
-//		// System.out.println("load:"+data);
-//		return data;
-//
-//	}
+	@RequestMapping(value = "loadTableData.do", produces = { "application/text;charset=UTF-8" })
+	@ResponseBody
+	/**
+	 * @describe 此处是显示数据
+	 * @param tabtitle 表明名
+	 * @param nodeid 所属结点id
+	 * @return
+	 */
+	public String loadTableData(String tabTitle, String nodeId) {
+		String data = null;
+		List<NodeTable> tList = new ArrayList<NodeTable>();
+		if (nodeMap.get(nodeId) != null) {
+			tList = nodeMap.get(nodeId);
+		}
+		for (NodeTable t : tList) {
+			// 存在该表格
+			if (t.getTableId().equals(tabTitle)) {
+
+				if (t.getData() != null) {
+					data = t.getData();
+				}
+			}
+		}
+		// System.out.println("load:"+data);
+		return data;
+
+	}
 
 	// 返回节点信息表格的标签页名称
 	@RequestMapping("loadPeopleTab.do")
 	@ResponseBody
 	public List<String> loadPeopleTab(String nodeId) {
-		List<String> tabTitle = new ArrayList<>();
+		List<String> tabTitle = new ArrayList();
 		// 遍历list
 		if (nodeMap.get(nodeId) != null) {
 			int len = nodeMap.get(nodeId).size();
@@ -177,54 +171,54 @@ public class UserController {
 	}
 
 	// 保存人员infotable
-//	@RequestMapping("/infoTablePost.do")
-//	@ResponseBody
-//	/**
-//	 * @describe 保存人员infotable(最下方的表格)
-//	 * @param pid
-//	 * @param tabletitle
-//	 * @param changetabledata
-//	 */
-//	public void infoTablePost(String pId, String tableTitle, String changeTableData) {
-//		// 修改map里的数据
-//		System.out.println(changeTableData);
-//
-//		for (NodeTable nt : peopleInfoMap.get(pId)) {
-//			if (nt.getTableId().equals(tableTitle)) {
-//				nt.setData(changeTableData);
-//			}
-//		}
-//		peopleInfoMap.put(pId, peopleInfoMap.get(pId));
-//		// 保存到people实体中
-//		for (People p : p) {
-//			if (p.getPeopleId().equals(pId)) {
-//				p.setInfoTableList(peopleInfoMap.get(pId));
-//			}
-//		}
-//	}
+	@RequestMapping("/infoTablePost.do")
+	@ResponseBody
+	/**
+	 * @describe 保存人员infotable(最下方的表格)
+	 * @param pid
+	 * @param tabletitle
+	 * @param changetabledata
+	 */
+	public void infoTablePost(String pId, String tableTitle, String changeTableData) {
+		// 修改map里的数据
+		System.out.println(changeTableData);
+
+		for (NodeTable nt : peopleInfoMap.get(pId)) {
+			if (nt.getTableId().equals(tableTitle)) {
+				nt.setData(changeTableData);
+			}
+		}
+		peopleInfoMap.put(pId, peopleInfoMap.get(pId));
+		// 保存到people实体中
+		for (People p : p) {
+			if (p.getPeopleId().equals(pId)) {
+				p.setInfoTableList(peopleInfoMap.get(pId));
+			}
+		}
+	}
 
 	// 加载人员infotable
-//	@RequestMapping(value = "loadInfoTable.do", produces = { "application/text;charset=UTF-8" })
-//	@ResponseBody
-//	public String loadInfoTable(String tabTitle, String pId) {
-//		
-//		String data = null;
-//		for (NodeTable t : peopleInfoMap.get(pId)) {
-//			if (t.getTableId().equals(tabTitle)) {
-//				data = t.getData();
-//			}
-//		}
-//
-//		// System.out.println("load:"+data);
-//		return data;
-//
-//	}
+	@RequestMapping(value = "loadInfoTable.do", produces = { "application/text;charset=UTF-8" })
+	@ResponseBody
+	public String loadInfoTable(String tabTitle, String pId) {
+		
+		String data = null;
+		for (NodeTable t : peopleInfoMap.get(pId)) {
+			if (t.getTableId().equals(tabTitle)) {
+				data = t.getData();
+			}
+		}
+
+		// System.out.println("load:"+data);
+		return data;
+
+	}
 
 	// 加载人员信息的tab
 	@RequestMapping("/loadInfoTab.do")
 	@ResponseBody
 	public List<String> loadinfotab(String pid) {
-		List<String> peopletab = new ArrayList<>();
+		List<String> peopletab = new ArrayList();
 		int len = peopleInfoMap.get(pid).size();
 		for (int i = 0; i < len; i++) {
 			String tabt = peopleInfoMap.get(pid).get(i).getTableId();
