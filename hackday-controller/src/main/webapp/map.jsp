@@ -39,15 +39,12 @@ a{
 a:hover{background:rgba(39, 154, 187, 1);}
 </style>
 </head>
-<body>
+<body style='background:#F5F5F5'>
     <div id="r-result">
-	    <input id="cityName" type="text" placeholder="城市名" style="width:100px; margin-right:10px;" />
+	    <input id="cityName" type="text" placeholder="地点" style="width:100px; margin-right:10px;" />
 	    <input id="longitude" type="text" placeholder="经度" style="width:100px; margin-right:10px;" />
 	    <input id="latitude" type="text" placeholder="纬度" style="width:100px; margin-right:10px;" />
-	</div>
-	</br>
-	<div id="r-result">
-	    <input type="button" value="查询城市" onclick="theLocation()" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	    <input type="button" value="查询地点" onclick="theLocation()" />&nbsp;&nbsp;
 		<input type="button" value="查询经纬" onclick="theLocation()" />
 	</div>
 	<div id="allmap" width=100%  height=100%></div>
