@@ -28,13 +28,7 @@ import org.dom4j.io.XMLWriter;
 import com.hackday.po.Connection;
 import com.hackday.po.People;
 
-/**
- * 
- * @author 高伟鹏 原作 李文渊学姐
- * @email gaoweipeng3@gmail.com
- * @version 创建时间：2018年5月14日 下午8:15:03
- * @describe 代码阅读与命名修改
- */
+
 public class XmlUtil {
     /**
      * @describe 采用jaxb将实体bean转化为xml类型数据
@@ -88,7 +82,6 @@ public class XmlUtil {
 		}
 	}
 
-	@SuppressWarnings("unchecked")//这个注解就很迷
 	/**
 	 * @describe 获取people与connection集
 	 * @param xml格式的数据串
@@ -123,7 +116,7 @@ public class XmlUtil {
 				People ss = pp.getClass().newInstance();
 				pp = ss;
 
-				p = (People) p.getClass().newInstance();//实例化？本身就是一个实例的引用，再实例化获取引用？
+				p = (People) p.getClass().newInstance();
 				for (int j = 0; j < properties.length; j++) {// 遍历所有孙子节点
 					// 实例的set方法
 					setMethodPeople = p.getClass().getMethod("set" + properties[j].getName().substring(0, 1).toUpperCase()

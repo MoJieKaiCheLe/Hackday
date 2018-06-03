@@ -16,7 +16,8 @@ public class PageController {
 	
 	@RequestMapping("/")
 	public String showIndex() {
-		return "index";
+		System.out.println("aaa");
+		return "tiaoZhuan";
 	}
 
 	@RequestMapping("/{page}")

@@ -23,8 +23,8 @@
                 <li>
                     <h2 class="obtain">功能选择<i></i></h2>
                     <div class="secondary">
-					<h3><a href='index' style="color: #ffffff">人员</a></h3>
-					<h3><a href='map' style="color: #ffffff">地图</a></h3>
+					<h3><a href='index' style="color: #ffffff">人员信息查询</a></h3>
+					<h3><a href='map' style="color: #ffffff">地图信息查询</a></h3>
                     </div>
                 </li>
             </ul>
