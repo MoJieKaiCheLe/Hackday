@@ -9,7 +9,7 @@
 		#r-result{width:100%; font-size:14px;}
 	</style>
 	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=hNMb4CKscuim6FX0ZYB3akGMckTXhGBj"></script>
-	<title>城市名定位</title>
+	<title>城市定位</title>
 	<style type="text/css">
 input{
 	transition:all 0.30s ease-in-out;
@@ -45,13 +45,25 @@ a:hover{background:rgba(39, 154, 187, 1);}
 	    <input id="longitude" type="text" placeholder="经度" style="width:100px; margin-right:10px;" />
 	    <input id="latitude" type="text" placeholder="纬度" style="width:100px; margin-right:10px;" />
 	    <input type="button" value="查询地点" onclick="theLocation()" />&nbsp;&nbsp;
-		<input type="button" value="查询经纬" onclick="theLocation()" />
+		<input type="button" value="查询经纬" onclick="theLocation1()" />
 	</div>
 	<div id="allmap" width=100%  height=100%></div>
 </body>
 </html>
 <script type="text/javascript">
 
+	// 百度地图API功能
+	
+	
+	var map = new BMap.Map("allmap");
+	map.addControl(new BMap.NavigationControl());    
+	map.addControl(new BMap.GeolocationControl());    
+	map.addControl(new BMap.OverviewMapControl()); 
+	map.enableScrollWheelZoom(true);
+	
+	
+	var point = new BMap.Point(116.331398,39.897445);
+	map.centerAndZoom(point,11);
 function theLocation(){
 	if(document.getElementById("longitude").value != "" && document.getElementById("latitude").value != ""){
 		map.clearOverlays(); 
@@ -61,15 +73,17 @@ function theLocation(){
 		map.panTo(new_point);      
 	}
 }
+//用经纬度设置地图中心点
+function theLocation1(){
+	if(document.getElementById("longitude").value != "" && document.getElementById("latitude").value != ""){
+		map.clearOverlays(); 
+		var new_point = new BMap.Point(document.getElementById("longitude").value,document.getElementById("latitude").value);
+		var marker = new BMap.Marker(new_point);  // 创建标注
+		map.addOverlay(marker);              // 将标注添加到地图中
+		map.panTo(new_point);      
+	}
+}
 
-	// 百度地图API功能
-	var map = new BMap.Map("allmap");
-	map.addControl(new BMap.NavigationControl());    
-	map.addControl(new BMap.GeolocationControl());    
-	map.addControl(new BMap.OverviewMapControl()); 
-	
-	var point = new BMap.Point(116.331398,39.897445);
-	map.centerAndZoom(point,11);
 
 	function theLocation(){
 		var city = document.getElementById("cityName").value;
@@ -90,7 +104,7 @@ geolocation.getCurrentPosition(function(r){
 	else {
 		alert('failed'+this.getStatus());
 	}        
-});
+}); 
 
 	
 	//坐标转换完之后的回调函数
