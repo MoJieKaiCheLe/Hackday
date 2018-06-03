@@ -18,6 +18,13 @@ public class People {
 	private String borderWidth;//边框粗细
 	private String borderColor;//边框颜色
 
+	private List InfoTableList;
+	public List getInfoTableList() {
+		return InfoTableList;
+	}
+	public void setInfoTableList(List infoTableList) {
+		InfoTableList = infoTableList;
+	}
 	/**
 	 * @describe 属性的setter，getter方法。以及toString的重写
 	 * @return
@@ -102,7 +109,5 @@ public class People {
 				+ ", fontSize=" + fontSize + ", fontColor=" + fontColor + ", borderType=" + borderType
 				+ ", borderWidth=" + borderWidth + ", borderColor=" + borderColor + "]";
 	}
-	
-
 
 }

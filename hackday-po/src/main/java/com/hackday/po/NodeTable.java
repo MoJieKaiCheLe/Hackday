@@ -7,8 +7,32 @@ public class NodeTable {
 	private String tableName;//表名
 	private String nodeId;//节点id（外键）
 	private String tableMain;//是否为主表
-
+	private String tableTitle;//表名
+	private String changeTableData;//表名
+	private String data;
 	
+	
+	public String getTableTitle() {
+		return tableTitle;
+	}
+	public void setTableTitle(String tableTitle) {
+		this.tableTitle = tableTitle;
+	}
+	public String getChangeTableData() {
+		return changeTableData;
+	}
+	public void setChangeTableData(String changeTableData) {
+		this.changeTableData = changeTableData;
+	}
+	public String getData() {
+		return data;
+	}
+	public void setData(String data) {
+		this.data = data;
+	}
+	public NodeTable(String tableId2, String tableTitle, String changeTableData) {
+		// TODO Auto-generated constructor stub
+	}
 	/**
 	 * @describe 下面是getter，setter方法以及头String的重写
 	 */

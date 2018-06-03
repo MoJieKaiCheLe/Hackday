@@ -28,8 +28,13 @@ import org.dom4j.io.XMLWriter;
 import com.hackday.po.Connection;
 import com.hackday.po.People;
 
-
-
+/**
+ * 
+ * @author 高伟鹏 原作 李文渊学姐
+ * @email gaoweipeng3@gmail.com
+ * @version 创建时间：2018年5月14日 下午8:15:03
+ * @describe 代码阅读与命名修改
+ */
 public class XmlUtil {
     /**
      * @describe 采用jaxb将实体bean转化为xml类型数据

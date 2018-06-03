@@ -18,18 +18,18 @@
 	<mvc:annotation-driven />
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/WEB-INF/jsp/" />
+		<property name="prefix" value="" />
 		<property name="suffix" value=".jsp" />
 	</bean>
 <!-- 加载配置文件 -->
 	 <context:property-placeholder location="classpath:resource/resource.properties" /> 
 	<!-- 资源映射 -->
-	<mvc:resources location="/WEB-INF/css/" mapping="/css/**"/>
-	<mvc:resources location="/WEB-INF/font/" mapping="/font/**"/>
-	<mvc:resources location="/WEB-INF/fonts/" mapping="/fonts/**"/>
+	<!-- <mvc:resources location="/WEB-INF/css/" mapping="/css/**"/>
 	<mvc:resources location="/WEB-INF/js/" mapping="/js/**"/>
-	<mvc:resources location="/WEB-INF/images/" mapping="/images/**"/>
-	<mvc:resources location="/WEB-INF/upload/" mapping="/upload/**"/>
+	<mvc:resources location="/WEB-INF/jsp/" mapping="/jsp/**"/>
+	<mvc:resources location="/WEB-INF/photo/" mapping="/photo/**"/>
+	<mvc:resources location="/WEB-INF/img/" mapping="/img/**"/> -->
+	
 	<!-- 定义文件上传解析器 -->
 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">

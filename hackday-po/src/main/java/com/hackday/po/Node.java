@@ -1,6 +1,6 @@
 package com.hackday.po;
 
-
+import java.util.List;
 
 public class Node {
 	private String nodeId;//jstree的结点id(主键）
@@ -9,6 +9,8 @@ public class Node {
 	private String nodeIcon;// 图标
 	private String parentId;// 父结点ID
 	private String nodeProperty;//是否为叶子节点（是否展开
+	
+	private String tableList;//表集合
 	/*
 	 * private String li_attr; private String a_attr; private String state(){
 	 * private boolean opened ; private boolean disabled ; private boolean selected
@@ -58,6 +60,10 @@ public class Node {
 	public String toString() {
 		return "Node [nodeId=" + nodeId + ", pageId=" + pageId + ", nodeName=" + nodeName + ", nodeIcon=" + nodeIcon
 				+ ", parentId=" + parentId + ", nodeProperty=" + nodeProperty + "]";
+	}
+	public void setTableList(List<NodeTable> list) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	
