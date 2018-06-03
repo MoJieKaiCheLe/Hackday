@@ -10,17 +10,45 @@
 	</style>
 	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=hNMb4CKscuim6FX0ZYB3akGMckTXhGBj"></script>
 	<title>城市名定位</title>
+	<style type="text/css">
+input{
+	transition:all 0.30s ease-in-out;
+	-webkit-transition: all 0.30s ease-in-out;
+	-moz-transition: all 0.30s ease-in-out;
+	
+	border:#35a5e5 1px solid;
+	border-radius:3px;
+	outline:none;
+}
+input:focus{
+	box-shadow:0 0 5px rgba(81, 203, 238, 1);
+	-webkit-box-shadow:0 0 5px rgba(81, 203, 238, 1);
+	-moz-box-shadow:0 0 5px rgba(81, 203, 238, 1);
+}
+a{
+	text-decoration:none;
+	background:rgba(81, 203, 238, 1);
+	color:white;padding: 6px 25px 6px 25px;
+	font:12px '微软雅黑';
+	border-radius:3px;
+	
+	-webkit-transition:all linear 0.30s;
+	-moz-transition:all linear 0.30s;
+	transition:all linear 0.30s;
+}
+a:hover{background:rgba(39, 154, 187, 1);}
+</style>
 </head>
 <body>
-
     <div id="r-result">
-		城市名: <input id="cityName" type="text" style="width:100px; margin-right:10px;" />
-		<input type="button" value="查询" onclick="theLocation()" />
+	    <input id="cityName" type="text" placeholder="城市名" style="width:100px; margin-right:10px;" />
+	    <input id="longitude" type="text" placeholder="经度" style="width:100px; margin-right:10px;" />
+	    <input id="latitude" type="text" placeholder="纬度" style="width:100px; margin-right:10px;" />
 	</div>
+	</br>
 	<div id="r-result">
-		经&nbsp;&nbsp;&nbsp;度: <input id="longitude" type="text" style="width:100px; margin-right:10px;" />
-		纬&nbsp;&nbsp;&nbsp;度: <input id="latitude" type="text" style="width:100px; margin-right:10px;" />
-		<input type="button" value="查询" onclick="theLocation()" />
+	    <input type="button" value="查询城市" onclick="theLocation()" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<input type="button" value="查询经纬" onclick="theLocation()" />
 	</div>
 	<div id="allmap" width=100%  height=100%></div>
 </body>
